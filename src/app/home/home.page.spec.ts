@@ -18,7 +18,16 @@ describe('HomePage', () => {
     fixture.detectChanges();
   });
 
+  afterEach(() => {
+    localStorage.removeItem('todos');
+  })
+
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should be an empty object', () => {
+    component.loadTodos();
+    expect(component.todos).toEqual({});
   });
 });
